@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { AppProvider } from './context/AppContext';
 import AppLayout from './components/layout/AppLayout';
@@ -14,7 +14,7 @@ import SettingsPage from './pages/SettingsPage';
 export default function App() {
   return (
     <AppProvider>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<AppLayout />}>
             <Route index element={<OverviewPage />} />
@@ -28,7 +28,7 @@ export default function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
 
       {/* Global Toast Notification System */}
       <Toaster
