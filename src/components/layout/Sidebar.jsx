@@ -42,34 +42,12 @@ export default function Sidebar({ isOpen, onClose }) {
       {/* Mobile Backdrop */}
       {isOpen && (
         <div
+          className="sidebar-backdrop"
           onClick={onClose}
-          style={{
-            position: 'fixed',
-            inset: 0,
-            backgroundColor: 'rgba(15, 23, 42, 0.4)',
-            backdropFilter: 'blur(2px)',
-            zIndex: 90
-          }}
         />
       )}
 
-      <aside
-        style={{
-          width: 'var(--sidebar-width)',
-          backgroundColor: '#FFFFFF',
-          borderRight: '1px solid var(--border)',
-          display: 'flex',
-          flexDirection: 'column',
-          position: 'fixed',
-          top: 0,
-          bottom: 0,
-          left: 0,
-          zIndex: 100,
-          transform: isOpen ? 'translateX(0)' : undefined,
-          transition: 'transform 0.2s ease-in-out'
-        }}
-        className={isOpen ? 'sidebar-open' : 'sidebar-desktop'}
-      >
+      <aside className={`app-sidebar ${isOpen ? 'sidebar-open' : ''}`}>
         {/* Brand Header */}
         <div
           style={{
@@ -234,19 +212,6 @@ export default function Sidebar({ isOpen, onClose }) {
       </aside>
 
       <style>{`
-        @media (max-width: 1024px) {
-          .sidebar-desktop {
-            transform: translateX(-100%);
-          }
-          .mobile-only {
-            display: flex !important;
-          }
-        }
-        @media (min-width: 1025px) {
-          .mobile-only {
-            display: none !important;
-          }
-        }
         .nav-link-hover:hover {
           background-color: var(--bg-muted) !important;
           color: var(--text-primary) !important;
