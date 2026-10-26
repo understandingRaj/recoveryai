@@ -129,6 +129,31 @@ button, input, select, textarea {
   width: 100%;
 }
 
+/* Topbar Layout */
+.app-topbar {
+  height: var(--topbar-height);
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  width: 100%;
+}
+
+.mobile-menu-btn {
+  display: none !important;
+}
+
+@media (min-width: 1025px) {
+  .topbar-quick-add {
+    display: none !important;
+  }
+}
+
 .page-content {
   flex: 1;
   padding: 28px 32px 48px;
@@ -139,6 +164,12 @@ button, input, select, textarea {
 
 /* Mobile & Tablet Drawer (<= 1024px) */
 @media (max-width: 1024px) {
+  .app-topbar {
+    padding: 0 16px;
+  }
+  .mobile-menu-btn {
+    display: flex !important;
+  }
   .app-sidebar {
     position: fixed;
     top: 0;
